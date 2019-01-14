@@ -1,0 +1,7 @@
+
+
+
+
+
+module Class.Monoid where
+

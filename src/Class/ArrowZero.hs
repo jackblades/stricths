@@ -1,0 +1,5 @@
+
+
+module Class.ArrowZero where
+
+

@@ -1,0 +1,117 @@
+name:                stricths
+version:             0.1.0.0
+github:              "jackblades/stricths"
+license:             BSD3
+author:              "jackblades"
+maintainer:          "jackblades@github.com"
+copyright:           "2018 jackblades"
+
+default-extensions:
+- Strict
+- StrictData
+- NoImplicitPrelude
+- ApplicativeDo
+- BangPatterns
+- ConstraintKinds
+- DataKinds
+- DefaultSignatures
+- DeriveFoldable
+- DeriveFunctor
+- DeriveGeneric
+- DeriveLift
+- DeriveTraversable
+- DerivingStrategies
+- EmptyCase
+- ExistentialQuantification
+- FlexibleContexts
+- FlexibleInstances
+- FunctionalDependencies
+- GADTs
+- GeneralizedNewtypeDeriving
+- InstanceSigs
+- KindSignatures
+- LambdaCase
+- MultiParamTypeClasses
+- MultiWayIf
+- NamedFieldPuns
+- OverloadedStrings
+- PatternSynonyms
+- RankNTypes
+- ScopedTypeVariables
+- StandaloneDeriving
+- TemplateHaskell
+- TupleSections
+- TypeApplications
+- TypeFamilies
+- TypeFamilyDependencies
+- TypeOperators
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Prelude
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/jackblades/stricths#readme>
+
+dependencies:
+# - haskell-stack-trace-plugin
+- ghc-typelits-natnormalise
+# - repa-plugin
+# - supermonad
+- ghc-typelits-knownnat
+# - hotswap
+#--
+- base
+- text
+- text-builder
+# - text-icu  # requires system level installation of some packages
+- bytestring
+- bytestring-strict-builder
+# - strict-data
+# - vector
+# - wide-word
+- hvect
+- superrecord
+#--
+# - zuramaru
+- file-embed
+# - th-nowq
+- template-haskell
+- th-utilities
+- th-inline-io-action
+# - vector-th-unbox
+- inline-c
+- inline-c-cpp
+library:
+  source-dirs: src
+
+executables:
+  stricths-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    # - -fplugin=StackTrace.Plugin
+    # - -fplugin=GHC.TypeLits.Normalise
+    # - -fplugin=Control.Super.Monad.Plugin
+    dependencies:
+    - stricths
+
+tests:
+  stricths-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - stricths

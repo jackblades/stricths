@@ -1,0 +1,4 @@
+.stack-work/
+stricths.cabal
+*~
+.vscode
